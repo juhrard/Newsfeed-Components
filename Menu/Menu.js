@@ -49,9 +49,10 @@ function createMenu(array) {
   let menuDiv = document.createElement('div');
   let menuList = document.createElement('ul');
 
-  // Adding classes:
+  // Adding classes and styles:
 
   menuDiv.classList.add('menu');
+  //menuDiv.style.transform = ('translate(0px, 0px)');
 
   // Creating list items and appending to the list:
 
@@ -68,6 +69,14 @@ function createMenu(array) {
 
   menuButton.addEventListener('click', () => {
     menuDiv.classList.toggle('menu--open');
+    let myAnim = gsap.to(".menu", {x: 350, duration: 1});
+    let reversed = gsap.to(".menu--open", {x: 0, duration: 1})
+    if(menuDiv.className === 'menu') {
+      myAnim();
+    
+    } else {
+      reversed();
+    }
   })
 
   return menuDiv;
