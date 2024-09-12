@@ -112,3 +112,75 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+// Beginning of Code:
+
+function createComponent(item) {
+
+  // Creating HTML Elements:
+
+  let compArticle = document.createElement('div');
+  let compTitle = document.createElement('h2');
+  let compDate = document.createElement('p');
+  let compP1 = document.createElement('p');
+  let compP2 = document.createElement('p');
+  let compP3 = document.createElement('p');
+  let compButton = document.createElement('span');
+
+  // Assigning Classes:
+
+  compArticle.classList.add = ('article');
+  compDate.classList.add = ('date');
+  compButton.classList.add = ('expandButton');
+
+  // Appending HTML Elements:
+
+  compArticle.appendChild(compTitle);
+  compArticle.appendChild(compDate);
+  compArticle.appendChild(compP1);
+  compArticle.appendChild(compP2);
+  compArticle.appendChild(compP3);
+  compArticle.appendChild(compButton);
+
+  // Assigning Data:
+
+  compTitle.textContent = item.title;
+  compDate.textContent = item.date;
+  compP1.textContent = item.firstParagraph;
+  compP2.textContent = item.secondParagraph;
+  compP3.textContent = item.thirdParagraph;
+
+  // Return:
+
+  return compArticle;
+
+}
+
+// Creating 'Articles' div variable:
+
+let articles = document.querySelector('.articles')
+
+// Adding new article to the Array:
+
+data.push({
+  title: 'Gerard',
+  date: 'December 4th, 2019',
+  firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+        hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+        Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+  secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+        hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+        hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+        hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+  thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+        Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+        Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+})
+
+// Mapping over Data:
+
+data.map(item => {
+  articles.appendChild(createComponent(item));
+});
